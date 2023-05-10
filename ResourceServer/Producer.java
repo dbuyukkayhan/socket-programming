@@ -1,23 +1,28 @@
-
-
-class Producer extends Thread {
+class Producer extends Thread
+{
 	private Resource item;
-
-	public Producer(Resource resource) {
+	
+	public Producer(Resource resource)
+	{
 		item = resource;
 	}
-
-	public void run() {
+	
+	public void run()
+	{
 		int pause;
 		int newLevel;
-		do {
-			try {
+		do
+		{
+			try
+			{
 				item.addOne();
-				pause = (int) (Math.random() * 1000);
+				pause = (int)(Math.random() * 1000);
 				sleep(pause);
-			} catch (InterruptedException interruptEx) {
+			}
+			catch (InterruptedException interruptEx)
+			{
 				System.out.println(interruptEx);
 			}
-		} while (true);
+		}while (true);
 	}
 }
